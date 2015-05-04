@@ -13,18 +13,39 @@ namespace Exemplo {
 
         }
         protected void btn_enviar(Object sender, EventArgs e) {
-            if (textNome.Text.Equals("rogerio") && textSenha.Text.Equals("1234")) {
-                labelResult.ForeColor = Color.Green;
-                labelResult.Text = "Logado com sucesso!!!";
+
+            string nome = textNome.Text;
+            switch (nome) {
+                case "Eduardo":
+                    if (textSenha.Text.Equals("1234")) {
+                        Response.Redirect("Gerentes.aspx");
+                    }
+                    else {
+                        labelResult.Text = "Usuario ou Senha invalidos!";
+                    }
+                    break;
+                case "Maria":
+                    if (textSenha.Text.Equals("1234")) {
+                        Response.Redirect("Funcionarios.aspx");
+                    }
+                    else {
+                        labelResult.Text = "Usuario ou Senha invalidos!!!";
+                    }
+                    break;
+                case "Jose":
+                    if (textSenha.Text.Equals("1234")) {
+                        Response.Redirect("Funcionarios.aspx");
+                    }
+                    else {
+                        labelResult.Text = "Usuario ou Senha invalidos!!!";
+                    }
+                    break;
+
+                default:
+                    labelResult.Text = "Usuario nao encontrado, procure o administrador do sistema";
+                    break;
             }
-            else if (textNome.Text == String.Empty || textSenha.Text == String.Empty) {
-                labelResult.ForeColor = Color.Blue;
-                labelResult.Text = "Campos devem ser preenchidos!!!!";
-            }
-            else {
-                labelResult.ForeColor = Color.Red;
-                labelResult.Text = "Usuario ou Senha invalidos!!!";
-            }
+
 
         }
     }
